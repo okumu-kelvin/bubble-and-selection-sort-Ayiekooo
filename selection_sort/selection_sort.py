@@ -1,11 +1,10 @@
-def bubble_sort(arr):
+def selection_sort(arr):
     n = len(arr)
     for i in range(n):
-        for j in range(0, n - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr  # Correct: return AFTER all loops finish
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
 
-# Test the function (outside the bubble_sort function)
-sorted_list = bubble_sort([30, 87, 16, 25, 12, 42])
-print(sorted_list)
+        return arr
